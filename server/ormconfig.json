@@ -1,0 +1,13 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "",
+  "database": "ihavelunch",
+  "entities": ["src/entity/**/*.ts"],
+  "synchronize": true,
+  "dropSchema": false,
+  "cli.entitiesDir": "src/entity",
+  "cli.migrationsDir": "src/migration"
+}
