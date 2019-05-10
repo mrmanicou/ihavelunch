@@ -3,11 +3,12 @@
   "host": "localhost",
   "port": 5432,
   "username": "postgres",
-  "password": "",
+  "password": "P33k@b00",
   "database": "ihavelunch",
   "entities": ["src/entity/**/*.ts"],
   "synchronize": true,
   "dropSchema": false,
   "cli.entitiesDir": "src/entity",
-  "cli.migrationsDir": "src/migration"
+  "cli.migrationsDir": "src/migration",
+  "logging": true
 }
