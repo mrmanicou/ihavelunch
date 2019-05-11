@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
   BaseEntity
 } from "typeorm";
+import * as bcrypt from "bcryptjs";
 
 @Entity()
 export class User extends BaseEntity {
@@ -22,6 +23,9 @@ export class User extends BaseEntity {
   @Column("text")
   password: string;
 
+  @Column()
+  role: string;
+
   @Column({
     type: "enum",
     enum: UserType,
@@ -34,4 +38,12 @@ export class User extends BaseEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  hashPassword() {
+    this.password = bcrypt.hashSync(this.password, 8);
+  }
+
+  checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
+    return bcrypt.compareSync(unencryptedPassword, this.password);
+  }
 }
