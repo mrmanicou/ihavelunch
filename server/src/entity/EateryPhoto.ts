@@ -1,9 +1,24 @@
 import { Photo } from './Photo';
 import { Eatery } from './Eatery';
-import { ManyToOne } from 'typeorm';
+import {
+  ManyToOne,
+  Entity,
+  OneToOne,
+  JoinColumn,
+  PrimaryColumn,
+  PrimaryGeneratedColumn,
+  BaseEntity,
+} from 'typeorm';
 
-export class EateryPhoto {
+@Entity()
+export class EateryPhoto extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
   @ManyToOne(_ => Eatery, eatery => eatery.photos)
   eatery: Eatery;
+
+  @OneToOne(_ => Photo)
+  @JoinColumn()
   photo: Photo;
 }

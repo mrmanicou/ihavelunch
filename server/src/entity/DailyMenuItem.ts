@@ -7,10 +7,11 @@ import {
   CreateDateColumn,
   Column,
   UpdateDateColumn,
+  BaseEntity,
 } from 'typeorm';
 
 @Entity()
-export class DailyMenuItem {
+export class DailyMenuItem extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

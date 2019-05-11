@@ -4,10 +4,11 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  BaseEntity,
 } from 'typeorm';
 
 @Entity()
-export class Photo {
+export class Photo extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

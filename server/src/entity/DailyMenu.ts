@@ -1,9 +1,15 @@
 import { Eatery } from './Eatery';
 import { DailyMenuItem } from './DailyMenuItem';
-import { Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+  BaseEntity,
+} from 'typeorm';
 
 @Entity()
-export class DailyMenu {
+export class DailyMenu extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
