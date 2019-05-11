@@ -1,31 +1,31 @@
-import { UserType } from './UserType';
+import { UserType } from "./UserType";
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  BaseEntity,
-} from 'typeorm';
+  BaseEntity
+} from "typeorm";
 
 @Entity()
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column('text')
+  @Column("text")
   name: string;
 
-  @Column('text', { unique: true })
+  @Column("text", { unique: true })
   emai: string;
 
-  @Column('text')
+  @Column("text")
   password: string;
 
   @Column({
-    type: 'enum',
+    type: "enum",
     enum: UserType,
-    default: UserType.WEB,
+    default: UserType.WEB
   })
   userType: UserType = UserType.WEB;
 

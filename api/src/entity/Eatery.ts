@@ -1,7 +1,7 @@
-import { Parish } from './Parish';
-import { OperatingDay } from './OperatingDay';
-import { User } from './User';
-import { EateryPhoto } from './EateryPhoto';
+import { Parish } from "./Parish";
+import { OperatingDay } from "./OperatingDay";
+import { User } from "./User";
+import { EateryPhoto } from "./EateryPhoto";
 import {
   Entity,
   BaseEntity,
@@ -12,24 +12,24 @@ import {
   ManyToOne,
   OneToMany,
   OneToOne,
-  JoinColumn,
-} from 'typeorm';
-import { DailyMenu } from './DailyMenu';
-import { Dish } from './Dish';
+  JoinColumn
+} from "typeorm";
+import { DailyMenu } from "./DailyMenu";
+import { Dish } from "./Dish";
 
 @Entity()
 export class Eatery extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   // General info
-  @Column('text')
+  @Column("text")
   name: string;
 
-  @Column('text')
+  @Column("text")
   description: string;
 
-  @Column('text', { nullable: true })
+  @Column("text", { nullable: true })
   contactNumber?: string;
 
   @OneToOne(_ => User)
@@ -43,7 +43,7 @@ export class Eatery extends BaseEntity {
   @Column({ nullable: true })
   lon?: number;
 
-  @Column('text', { nullable: true })
+  @Column("text", { nullable: true })
   address?: string;
 
   @ManyToOne(_ => Parish, parish => parish.eateries)
