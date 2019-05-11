@@ -13,7 +13,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class MenuItem extends BaseEntity {
+export class Dish extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
   @Column()
@@ -21,7 +21,7 @@ export class MenuItem extends BaseEntity {
   @Column()
   regularPrice: number;
 
-  @ManyToOne(_ => Eatery, eatery => eatery.menuItems)
+  @ManyToOne(_ => Eatery, eatery => eatery.dishes)
   owner: Eatery;
 
   @OneToOne(_ => Photo, { nullable: true })

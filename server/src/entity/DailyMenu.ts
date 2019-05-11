@@ -6,6 +6,8 @@ import {
   ManyToOne,
   OneToMany,
   BaseEntity,
+  UpdateDateColumn,
+  CreateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -18,4 +20,10 @@ export class DailyMenu extends BaseEntity {
 
   @OneToMany(_ => DailyMenuItem, menuItem => menuItem.menu)
   items: DailyMenuItem[];
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

@@ -5,9 +5,10 @@ import {
   Entity,
   OneToOne,
   JoinColumn,
-  PrimaryColumn,
   PrimaryGeneratedColumn,
   BaseEntity,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -21,4 +22,10 @@ export class EateryPhoto extends BaseEntity {
   @OneToOne(_ => Photo)
   @JoinColumn()
   photo: Photo;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

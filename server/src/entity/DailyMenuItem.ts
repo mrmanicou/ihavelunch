@@ -1,5 +1,5 @@
 import { DailyMenu } from './DailyMenu';
-import { MenuItem } from './MenuItem';
+import { Dish } from './Dish';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -18,8 +18,8 @@ export class DailyMenuItem extends BaseEntity {
   @ManyToOne(_ => DailyMenu, menu => menu.items)
   menu: DailyMenu;
 
-  @ManyToOne(_ => MenuItem)
-  item: MenuItem;
+  @ManyToOne(_ => Dish)
+  dish: Dish;
 
   @Column()
   price?: number;

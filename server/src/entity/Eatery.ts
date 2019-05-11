@@ -15,7 +15,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { DailyMenu } from './DailyMenu';
-import { MenuItem } from './MenuItem';
+import { Dish } from './Dish';
 
 @Entity()
 export class Eatery extends BaseEntity {
@@ -57,8 +57,8 @@ export class Eatery extends BaseEntity {
   @OneToMany(_ => DailyMenu, menu => menu.eatery)
   menus: DailyMenu[];
 
-  @OneToMany(_ => MenuItem, menuItem => menuItem.owner)
-  menuItems: MenuItem[];
+  @OneToMany(_ => Dish, menuItem => menuItem.owner)
+  dishes: Dish[];
 
   // Social
   @OneToMany(_ => EateryPhoto, photo => photo.eatery)
